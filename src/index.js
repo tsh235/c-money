@@ -1,18 +1,10 @@
-// ! удалить этот импорт перед build
-// import './index.html';
 import './css/style.css';
 
 import { renderNavigation } from './modules/render/renderNavigation.js';
 import { renderHeader } from './modules/render/renderHeader.js';
 import { renderFooter } from './modules/render/renderFooter.js';
 import { router } from './modules/utils/router.js';
-import { renderAuth } from './modules/render/renderAuth.js';
 import { renderApp } from './modules/render/renderApp.js';
-import { renderCurrencies } from './modules/render/renderCurrencies.js';
-import { renderAccount } from './modules/render/renderAccount.js';
-import { getData } from './modules/utils/getData.js';
-import { renderExchange } from './modules/render/renderExchange.js';
-import { updateNav } from './modules/utils/updateNav.js';
 import { preload } from './modules/utils/preload.js';
 import { handleHomePage } from './modules/handlers/handleHomePage.js';
 import { handlePageAccount } from './modules/handlers/handlePageAccount.js';
