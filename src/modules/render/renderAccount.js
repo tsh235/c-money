@@ -4,7 +4,7 @@ import { renderAccountHeader } from "./renderAccountHeader.js";
 import { renderAccountHistory } from "./renderAccountHistory.js";
 import { renderAccountTransaction } from "./renderAccountTransaction.js";
 
-export const renderAccount = async (data) => {
+export const renderAccount = (data) => {
   main.textContent = '';
 
   const layoutContainer = document.createElement('div');
