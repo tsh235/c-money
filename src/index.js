@@ -18,6 +18,7 @@ export const MY_ACCOUNT = '24051911200915061003240821';
 export const token = localStorage.getItem(JWT_TOKEN_KEY);
 export const {header, main, footer} = renderApp();
 
+
 const init = () => {
   preload.init();
 

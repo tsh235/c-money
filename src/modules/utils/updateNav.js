@@ -45,18 +45,17 @@ export const updateNav = (page) => {
     });
   
     nav.append(linkCurrencies, linkExchange, logoutBtn);
-  
     logoutBtn.addEventListener('click', () => {
       nav.remove();
       main.textContent = '';
       preload.append();
       setTimeout(() => {
         preload.remove();
+        localStorage.removeItem(JWT_TOKEN_KEY);
+        router.navigate('/');
       }, 2000);
-      localStorage.removeItem(JWT_TOKEN_KEY);
-      router.navigate('/');
     });
-  
     return nav;
   }
+  
 };

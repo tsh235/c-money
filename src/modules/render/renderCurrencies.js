@@ -1,4 +1,4 @@
-import { main } from '../../index.js';
+import { main, token } from '../../index.js';
 import { addNewCount } from '../utils/addNewCount.js';
 import { sortList } from '../utils/sortList.js';
 import { renderCard } from './renderCard.js';
@@ -47,6 +47,7 @@ export const renderCurrencies = async (data) => {
   currenciesList.classList.add('Currencies_list__M1Qq1');
 
   const sortingData = sortList(data, currenciesSelect.value);
+
   const accounts = sortingData.map(item => renderCard(item));
   currenciesList.append(...accounts);
   
