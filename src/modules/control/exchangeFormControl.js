@@ -1,5 +1,4 @@
 import JustValidate from "just-validate";
-import { getData } from "../utils/getData.js";
 import { API_URL, token } from "../../index.js";
 import { renderError } from "../render/renderError.js";
 import { updateCurrencyTableBody } from "../utils/updateCurrencyTableBody.js";

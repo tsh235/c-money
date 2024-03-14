@@ -1,10 +1,9 @@
 import JustValidate from "just-validate";
-import { transferFunds } from "../utils/transferFunds.js";
+import { API_URL, token } from "../../index.js";
+import { updateHistoryTable } from "../utils/updateHistoryTable.js";
+import { renderError } from "../render/renderError.js";
 
 export const transactionControl = (acc, form) => {
-  const to = form.to;
-  const summ = form.amount;
-  
   const validateForm = new JustValidate(form, {
     errorLabelStyle: {
       color: '#D11616',
@@ -13,7 +12,7 @@ export const transactionControl = (acc, form) => {
   });
   
   validateForm
-    .addField(to, [
+    .addField(form.to, [
       {
         rule: 'required',
         errorMessage: 'Введите счет для перевода средств',
@@ -24,7 +23,7 @@ export const transactionControl = (acc, form) => {
         errorMessage: 'Счет должен содержать только цифры',
       },
     ])
-    .addField(summ, [
+    .addField(form.amount, [
       {
         rule: 'required',
         errorMessage: 'Введите сумму перевода',
@@ -35,12 +34,44 @@ export const transactionControl = (acc, form) => {
         errorMessage: 'Сумма должна содержать только цифры и не быть отрицательной',
       },
     ])
-    .onSuccess(() => {
+    .onSuccess(async () => {
       const credentails = {
         from: acc,
-        to: to.value,
-        amount: summ.value,
+        to: form.to.value,
+        amount: form.amount.value,
       };
-      transferFunds(form, credentails);
+
+      try {
+        const response = await fetch(`${API_URL}/transfer-funds`, {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Basic ${token}`
+          },
+          body: JSON.stringify(credentails),
+        });
+    
+        if (response.ok) {
+          const data = await response.json();
+    
+          if (data.payload) {
+            form.reset();
+            updateHistoryTable(data.payload);
+          } else {
+            renderError(data.error, 'account');
+          }
+        } else {
+          const { message = 'Неизвестная ошибка' } = await response.json();
+          throw new Error(message);
+        }
+      } catch (error) {
+        console.error(error.message);
+      }
+
+
+
+
+
+      // transferFunds(form, credentails);
     });
 };

@@ -26,9 +26,7 @@ export const renderAccountTransaction = ({account}) => {
   
   accountTransaction.append(transactionTitle, transactionForm);
 
-  transactionForm.addEventListener('change', () => {
-    transactionControl(account, transactionForm);
-  });
+  transactionControl(account, transactionForm);
   
   return accountTransaction;
 };
