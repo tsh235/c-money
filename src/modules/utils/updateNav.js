@@ -49,9 +49,9 @@ export const updateNav = (page) => {
       nav.remove();
       main.textContent = '';
       preload.append();
+      localStorage.removeItem(JWT_TOKEN_KEY);
       setTimeout(() => {
         preload.remove();
-        localStorage.removeItem(JWT_TOKEN_KEY);
         router.navigate('/');
       }, 2000);
     });
