@@ -584,6 +584,8 @@ iframe {
   width: 100%;
 }
 .Exchange_td__first__6MLbU {
+  display: block;
+  white-space: nowrap;
   font-family: Nunito;
   font-size: 15px;
   font-weight: 700;

@@ -12,7 +12,7 @@ import { handlePageExchange } from './modules/handlers/handlePageExchange.js';
 import { handlePageCurrencies } from './modules/handlers/handlePageCurrencies.js';
 
 export const API_URL = 'http://localhost:3000';
-export const WS_URL = 'ws://localhost:3000';
+export const WS_URL = 'ws://localhost:3000'; // если с хостинга, то надо wss прописывать
 export const JWT_TOKEN_KEY = 'cmoney';
 export const MY_ACCOUNT = '24051911200915061003240821';
 export const token = localStorage.getItem(JWT_TOKEN_KEY);
