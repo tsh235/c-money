@@ -1,3 +1,4 @@
+import { MY_ACCOUNT } from '../../index.js';
 import { renderExchange } from '../render/renderExchange.js';
 import { getData } from '../utils/getData.js';
 import { preload } from '../utils/preload.js';
