@@ -12,7 +12,7 @@ import { handlePageExchange } from './modules/handlers/handlePageExchange.js';
 import { handlePageCurrencies } from './modules/handlers/handlePageCurrencies.js';
 
 export const API_URL = 'https://foggy-mini-drum.glitch.me';
-export const WS_URL = 'ws://foggy-mini-drum.glitch.me'; // если с хостинга, то надо wss прописывать
+export const WS_URL = 'wss://foggy-mini-drum.glitch.me'; // если с хостинга, то надо wss прописывать
 export const JWT_TOKEN_KEY = 'cmoney';
 export const MY_ACCOUNT = '24051911200915061003240821';
 export const token = localStorage.getItem(JWT_TOKEN_KEY);
