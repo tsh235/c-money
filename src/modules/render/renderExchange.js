@@ -1,12 +1,17 @@
-import { WS_URL, main } from '../../index.js';
+import { MY_ACCOUNT, WS_URL, main } from '../../index.js';
+import { getData } from '../utils/getData.js';
+import { preload } from '../utils/preload.js';
 import { renderCurrencyTableBody } from './renderCurrencyTableBody.js';
 import { renderExchangeForm } from './renderExchangeForm.js';
 import { renderExchangeRow } from './renderExchangeRow.js';
 
-export const renderExchange = async (data) => {
-  const {account, balance} = data;
-
+export const renderExchange = async () => {
   main.textContent = '';
+
+  preload.append();
+  const data = await getData(`account/${MY_ACCOUNT}`);
+  preload.remove();
+  const {account, balance} = data;
 
   const layoutContainer = document.createElement('div');
   layoutContainer.classList.add('Layout_container__dVyML');

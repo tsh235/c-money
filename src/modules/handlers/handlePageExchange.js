@@ -6,8 +6,5 @@ import { updateNav } from '../utils/updateNav.js';
 
 export const handlePageExchange = async () => {
   updateNav('exchange');
-  preload.append();
-  const data = await getData(`account/${MY_ACCOUNT}`);
-  preload.remove();
-  renderExchange(data);
+  renderExchange();
 };

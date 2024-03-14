@@ -1,5 +1,6 @@
-import { main, token } from '../../index.js';
+import { main} from '../../index.js';
 import { addNewCount } from '../utils/addNewCount.js';
+import { getData } from '../utils/getData.js';
 import { sortList } from '../utils/sortList.js';
 import { renderCard } from './renderCard.js';
 
@@ -59,8 +60,9 @@ export const renderCurrencies = async (data) => {
 
   openAccountBtn.addEventListener('click', async () => {
     addNewCount();
+    const newData = await getData('accounts');
     currenciesList.textContent = '';
-    const accounts = data.map(item => renderCard(item));
+    const accounts = newData.map(item => renderCard(item));
     currenciesList.append(...accounts);
   });
 
