@@ -67,11 +67,5 @@ export const transactionControl = (acc, form) => {
       } catch (error) {
         console.error(error.message);
       }
-
-
-
-
-
-      // transferFunds(form, credentails);
     });
 };
