@@ -2,7 +2,7 @@ import { main } from '../../index.js';
 import { renderAccountDynamic } from "./renderAccountDynamic.js";
 import { renderAccountHeader } from "./renderAccountHeader.js";
 import { renderAccountHistory } from "./renderAccountHistory.js";
-import { renderAccountTransaction } from "./renderAccountTransaction.js";
+import { renderTransactionForm } from "./renderTransactionForm.js";
 
 export const renderAccount = (data) => {
   main.textContent = '';
@@ -12,11 +12,12 @@ export const renderAccount = (data) => {
 
   const accountContainer = document.createElement('div');
   accountContainer.classList.add('Account_container__bOskA');
+
   accountContainer.append(
     renderAccountHeader(data),
     renderAccountDynamic(data),
     renderAccountHistory(data),
-    renderAccountTransaction(data)
+    renderTransactionForm(data)
   );
   layoutContainer.append(accountContainer);
   main.append(layoutContainer);
