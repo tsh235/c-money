@@ -1,5 +1,5 @@
 import JustValidate from "just-validate";
-import { API_URL } from "../../index.js";
+import { API_URL, JWT_TOKEN_KEY } from "../../index.js";
 import { renderError } from "../render/renderError.js";
 import { updateCurrencyTableBody } from "../utils/updateCurrencyTableBody.js";
 
