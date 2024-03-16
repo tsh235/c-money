@@ -2,6 +2,7 @@ import JustValidate from "just-validate";
 import { API_URL, JWT_TOKEN_KEY, main } from "../../index.js";
 import { router } from '../utils/router.js';
 import { renderError } from "../render/renderError.js";
+import { preload } from "../utils/preload.js";
 
 export const authControl = (authForm) => {
   const userLogin = authForm.login;
@@ -75,9 +76,11 @@ export const authControl = (authForm) => {
         });
 
         if (response.ok) {
+          preload.append();
           const data = await response.json();
-
+          
           if (data.payload) {
+            preload.remove();
             authForm.reset();
             localStorage.setItem(JWT_TOKEN_KEY, data.payload.token);
             main.textContent = '';
